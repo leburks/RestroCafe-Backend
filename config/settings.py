@@ -30,7 +30,9 @@ SECRET_KEY = 'django-insecure-ov#r^^&xv&^0vmc(zj&h_t^$*52@8jicn=%*z*@s-=li!s_p@=
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CORS_ALLOW_ALL_ORIGINS = True
+       X_FRAME_OPTIONS = "*"
+       CORS_ORIGIN_ALLOW_ALL = True
+       CSRF_TRUSTED_ORIGINS = ['https://127.0.0.1:8000',https://0.0.0:3000','https://RestroCafe-Frontend.lburks.repl.co']
 
 # Application definition
 
@@ -49,6 +51,7 @@ INSTALLED_APPS = [
     'apps.review',
     'cloudinary',
     'django_filters',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -87,17 +90,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# Heroku Database
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'dch7n72frg031v',
-#         'USER': 'ldpelxievviuhf',
-#         'PORT': 5432,
-#         'HOST': 'ec2-23-23-164-251.compute-1.amazonaws.com',
-#         'PASSWORD': '8a9353d3c2aa7a6baaf128ed3c6fc0a4ede1cccfec1ccc0222e089e0871b8975',
-#     }
-# }
+
 
 # Local Database
 DATABASES = {
